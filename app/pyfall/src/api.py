@@ -31,7 +31,7 @@ def full_specific_request(url):
     return result
 
 def random_request():
-    url = handlers.links(route=routes["random"])
+    url = handlers.links(route=handlers.routes["random"])
     response = requests.get(url)
     result = response.json()
     return result
