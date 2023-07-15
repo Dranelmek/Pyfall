@@ -1,5 +1,5 @@
 import requests
-from handlers import *
+import handlers
 
 # template code for apicall
 # respons = requests.get('https://randomuser.me/api')
@@ -11,16 +11,30 @@ from handlers import *
 # print(name)
 # print(links())
 
-# will return the 
-def generic_request():
-    url = links(route=routes["random"])
+# scryfall api requests
+def generic_request(cardName):
+    url = handlers.links(name=cardName)
+    response = requests.get(url)
+    result = response.json()
+    handlers.api_error(result)
+    return result
+
+def set_specific_request(cardName, setName):
+    url = handlers.links(name=cardName, set=setName)
     response = requests.get(url)
     result = response.json()
     return result
 
-def specific_request(url):
+def full_specific_request(url):
     response = requests.get(url)
     result = response.json()
     return result
 
-print(generic_request())
+def random_request():
+    url = handlers.links(route=routes["random"])
+    response = requests.get(url)
+    result = response.json()
+    return result
+
+
+print(generic_request("teferi, time raveler")['oracle_text'])
