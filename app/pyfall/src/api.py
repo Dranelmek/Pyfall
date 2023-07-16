@@ -23,17 +23,20 @@ def set_specific_request(cardName, setName):
     url = handlers.links(name=cardName, set=setName)
     response = requests.get(url)
     result = response.json()
+    handlers.api_error(result)
     return result
 
 def full_specific_request(url):
     response = requests.get(url)
     result = response.json()
+    handlers.api_error(result)
     return result
 
 def random_request():
     url = handlers.links(route=handlers.routes["random"])
     response = requests.get(url)
     result = response.json()
+    handlers.api_error(result)
     return result
 
 
