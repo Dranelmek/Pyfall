@@ -10,21 +10,31 @@ class Card:
 
     def __init__(self, data:dict):
         try:
+            try:
+                cardtype = data['card']
+            except:
+                raise ApiError("Error populating card object")
             # generic values
-            self.name
-            self.cost
-            self.cmc
-            self.rulesText
-            self.cardTypes
-            self.flavorText
-            self.color
+            self.name = data['name']
+            self.cost = data['mana_cost']
+            self.cmc = data['cmc']
+            self.rulesText = data['oracle_text']
+            self.cardTypes = data['type_line']
+            self.color = data['colors']
 
-            # type specific values
-            self.p
-            self.t
-            self.loyalty
-            self.defense
+            # type/card specific values
+            if("creature" in str(self.cardTypes).lower()):
+                self.p = data['power']
+                self.t = data['toughness']
+            
+            if("battle" in str(self.cardTypes).lower()):
+                self.defense = data['defense']
 
+            if("planeswalker" in str(self.cardTypes).lower()):
+                self.loyalty = data['loyalty']
+            
+            if(data['flavor_text']):
+                self.flavorText = data['flavor_text']
 
         except ApiError as a:
             print(a)
