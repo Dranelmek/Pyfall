@@ -54,3 +54,9 @@ class RawCardData:
             print(a)
         except:
             print("something went wrong")
+
+# TODO: make get_card method that populates the card class and makes an api call
+
+def get_card(name="", option=0):
+    # name is the card name and option will be intergers that decide how specific the request is
+    return

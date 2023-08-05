@@ -40,4 +40,5 @@ def random_request():
     return result
 
 
-print(generic_request("teferi, time raveler")['oracle_text'])
+# print(generic_request("teferi, time raveler")['oracle_text'])
+print(generic_request("hullbreacher")['set_name'])

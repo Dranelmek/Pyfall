@@ -22,3 +22,4 @@ def api_error(res):
     if (res['object'] == "error"):
         raise ApiError(f"Error code: {res['status']} {res['code']}\n{res['details']}")
     
+# TODO: make an options dictionary/Enumeration that maps settings (caps lock variables) to integers
