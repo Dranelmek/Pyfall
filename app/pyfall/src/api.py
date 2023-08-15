@@ -20,7 +20,7 @@ def generic_request(cardName):
     return result
 
 def set_specific_request(cardName, setName):
-    url = handlers.links(name=cardName, set=setName)
+    url = handlers.links(name=cardName, magicSet=setName)
     response = requests.get(url)
     result = response.json()
     handlers.api_error(result)

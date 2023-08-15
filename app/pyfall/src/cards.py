@@ -73,12 +73,10 @@ class RawCardData:
 
 # TODO: make get_card method that populates the card class and makes an api call
 
-def get_card(name="", set="", option=0):
+def get_card(name="", setName="", option=0):
     
     out = None
 
-    if (len(name) > 0):
-        option = 1
     # name is the card name and option will be intergers that decide how specific the request is
     match option:
         case 0:
@@ -86,7 +84,7 @@ def get_card(name="", set="", option=0):
         case 1:
             out = Card(generic_request(name))
         case 2:
-            out = Card(set_specific_request(name, set))
+            out = Card(set_specific_request(name, setName))
     return out
 
-print(get_card("lord of extinction"))
+print(get_card(name="opt", setName="ixalan", option=2))

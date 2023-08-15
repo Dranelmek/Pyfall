@@ -13,8 +13,9 @@ routes = {
 }
 
 # this function will autogenerate an api link
-def links(route=routes['cards'], exact=False, set=None, name="fblthp-the-lost"):
-    link = f"{route}?{'exact' if exact else 'fuzzy'}={name}"
+#TODO: allow for more specific querries
+def links(route=routes['cards'], exact=False, magicSet=None, name="fblthp-the-lost"):
+    link = f'{route}?{"exact" if exact else "fuzzy"}={name}{("&set="+magicSet) if magicSet else ""}'
     return link
 
 # this function throws an error if an api request fails
