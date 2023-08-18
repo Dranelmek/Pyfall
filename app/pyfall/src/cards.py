@@ -87,4 +87,4 @@ def get_card(name="", setName="", option=0):
             out = Card(set_specific_request(name, setName))
     return out
 
-print(get_card(name="opt", setName="ixalan", option=2))
+print(get_card(name="fiery impulse", option=1))

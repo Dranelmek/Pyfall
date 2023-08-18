@@ -5,6 +5,7 @@ __pycache__/
 
 # extra files
 cd.txt
+test.py
 
 # C extensions
 *.so
